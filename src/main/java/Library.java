@@ -25,7 +25,7 @@ public class Library {
             inventory[11] = new Book(12, "01100", "Operation Gladio", false, "");
             inventory[12] = new Book(13, "01101", "Principles of Economics", false, "");
             inventory[13] = new Book(14, "01110", "The Age of AI", false, "");
-            inventory[14] = new Book(15, "01111", "The Bitcoin Standardo", false, "");
+            inventory[14] = new Book(15, "01111", "The Bitcoin Standard", false, "");
             inventory[15] = new Book(16, "10000", "The Creature from Jekyll Island", false, "");
             inventory[16] = new Book(17, "10001", "The Object Stares Back", false, "");
             inventory[17] = new Book(18, "10010", "The Price of Tomorrow", false, "");
