@@ -1,46 +1,33 @@
 public class Book {
-    private int id;
-    private String isbn;
-    private String title;
+    private final int id;
+    private final String isbn;
+    private final String title;
     private boolean checkedOut;
     private String checkedOutTo;
 
     //region constructor
-    public Book (int id, String isbn, String title, boolean isCheckedOut, String checkedOutTo) {
+    public Book (int id, String isbn, String title, boolean checkedOut, String checkedOutTo) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
-        this.checkedOut = isCheckedOut;
+        this.checkedOut = checkedOut;
         this.checkedOutTo = checkedOutTo;
     }
-        public Book(int id, String isbn, String title){
-            this(id, isbn, title, false, "");
-        }
     //endregion
 
 //region getters
 public int getId() {
-        return id;
-}
-public void setId(int id){
-        this.id = id;
-}
+        return id;}
 
 public String getIsbn(){
         return isbn;
-}
-public void setIsbn(String isbn){
-        this.isbn = isbn;
 }
 
 public String getTitle(){
         return title;
 }
-public void setTitle(String title){
-        this.title = title;
-}
 
-public boolean isCheckedOut(){
+public boolean checkedOut(){
         return  checkedOut;
 }
 public void setCheckedOut(boolean checkedOut){
@@ -72,9 +59,8 @@ public boolean checkIn(){
             return false;
         this.checkedOutTo = "";
         this.checkedOut = false;
-        return true;
+        return checkIn();
 }
-
 //endregion
 
 
