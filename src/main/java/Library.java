@@ -37,62 +37,59 @@ public class Library {
                     2. Show Checked Out Books
                     3. Exit - closes out of the application
                     """);
-
+            System.out.println("Enter your choice now: ");
             int choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
                 case 1:
                     showAvailable();
-                    while (true) {
+
                         System.out.println("""
                                 \nEnter the Id of a book you would like to check out.
                                 To go back to the main menu, enter 0.""");
-                        int userInput = Integer.parseInt(scanner.nextLine());
+                        int userInputCo = Integer.parseInt(scanner.nextLine());
 
                         Book selectedBook = null;
                         for (Book book : inventory) {
-                            if (book.getId() == userInput) {
+                            if (book.getId() == userInputCo) {
                                 selectedBook = book;
                                 System.out.println("Enter your name: ");
                                 String name = scanner.nextLine();
-                                if(name.isBlank()) {
-                                    System.out.println("Name cannot be blank. Please enter your name.");
-                                    continue;
-                                }
-                                selectedBook.setCheckedOutTo(name);
-                                selectedBook.setCheckedOut(true);
-                                System.out.printf("Checked out: %s to %s\n", selectedBook.getTitle(), selectedBook.getCheckedOutTo());
-                                return;
-                            } else if (userInput > inventory.length) {
+                                selectedBook.checkOutName(name);
+//                                if(name.isBlank()) {
+//                                    System.out.println("Name cannot be blank. Please enter your name.");
+//                                    continue;
+//                                }
+//                                selectedBook.setCheckedOutTo(name);
+//                                selectedBook.setCheckedOut(true);
+                                System.out.printf("Checked out: %s to %s%n%n", selectedBook.getTitle(), selectedBook.getCheckedOutTo());
+                                break;
+                            } else if (userInputCo > inventory.length) {
                                 System.out.println("Book with that Id doesn't exist.");
                                 break;
                             }
                         }
-                        if (userInput == 0) {
+                        if (userInputCo == 0) {
                             break;
                         }
-                    }
                     break;
 
                 case 2:
                     showCheckedOut();
-                    while (true) {
                         System.out.println("""
                                 Enter the Id of a book you would like to check in.
                                 To go back to the main menu, enter 0.""");
-                        int userInput = Integer.parseInt(scanner.nextLine());
 
-                        Book selectedBook = null;
+                        int userInputCi = Integer.parseInt(scanner.nextLine());
+
                         for (Book book : inventory) {
-                            if (book.getId() == userInput) {
+                            if (book.getId() == userInputCi) {
                                 selectedBook = book;
                                 selectedBook.checkIn();
-                                System.out.printf("%s has been successfully checked in.", selectedBook.getTitle());
+                                System.out.printf("%s has been successfully checked in.%n%n", selectedBook.getTitle());
                             }
                         }
                         break;
-                    }
-                    break;
 
                 case 3:
                     System.out.println("Goodbye!");
